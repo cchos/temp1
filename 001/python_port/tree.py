@@ -11,6 +11,9 @@ class TreeState:
     node_ids: list[str] = field(default_factory=list)  # 1-based logical index
     name_by_idx: dict[int, str] = field(default_factory=dict)
     type_by_idx: dict[int, str] = field(default_factory=dict)
+    source_row_by_idx: dict[int, list[str]] = field(default_factory=dict)
+    pdms_info2: dict[int, list[str]] = field(default_factory=dict)
+
     parent: dict[int, int] = field(default_factory=dict)
     children: dict[int, list[int]] = field(default_factory=dict)
     level: dict[int, int] = field(default_factory=dict)
@@ -88,6 +91,12 @@ def arrange_pdms(sheet_read: list[list[str]]) -> TreeState:
             first_row_for_idx[i] = ir
             state.name_by_idx[i] = _row_get(r, 3)
             state.type_by_idx[i] = _row_get(r, 4)
+            state.source_row_by_idx[i] = r
+            # PDMS_info2(1..56) ~= sheet_read(:, 4..59)
+            pdms = []
+            for j in range(4, 60):
+                pdms.append(_row_get(r, j))
+            state.pdms_info2[i] = pdms
         c = _row_get(r, 2)
         if i and c and c != "END" and c in idx_of:
             ic = idx_of[c]
@@ -103,7 +112,6 @@ def arrange_pdms(sheet_read: list[list[str]]) -> TreeState:
     state.parent = parent
     state.children = children
 
-    # root selection: parent==0 and has child first, else first parent==0
     root = 0
     for i in range(1, n + 1):
         if parent[i] == 0 and children[i]:
@@ -117,7 +125,6 @@ def arrange_pdms(sheet_read: list[list[str]]) -> TreeState:
     state.root = root
     state.fan = root
 
-    # levels
     level: dict[int, int] = {}
     for i in range(1, n + 1):
         ip = parent[i]
@@ -138,8 +145,7 @@ def arrange_pdms(sheet_read: list[list[str]]) -> TreeState:
         for i in range(1, n + 1):
             if level[i] != ilevel:
                 continue
-            ir = first_row_for_idx.get(i)
-            row = rows[ir] if ir is not None else []
+            row = state.source_row_by_idx.get(i, [])
             if _row_get(row, 2) == "END":
                 sflow = _row_get(row, IDXF1)
                 flow[i] = float(sflow) if is_digit_like(sflow) else 0.0
@@ -172,7 +178,6 @@ def arrange_pdms(sheet_read: list[list[str]]) -> TreeState:
     state.flow = flow
     state.flow_dir = flow_dir
 
-    # brothers and node code
     brothers: dict[int, list[int]] = {i: [] for i in range(1, n + 1)}
     node_code: dict[int, int] = {}
     for i in range(1, n + 1):
@@ -206,12 +211,11 @@ def arrange_pdms(sheet_read: list[list[str]]) -> TreeState:
     return state
 
 
-def trim_twork_iChilds(sheet_read: list[list[str]], tree: TreeState) -> None:
-    for i, ch in tree.children.items():
+def trim_twork_iChilds(tree: TreeState) -> None:
+    for i, ch in list(tree.children.items()):
         if tree.parent.get(i, 0) == 0 or not ch:
             continue
 
-        # Rule 1: reverse if any child type is BRCO or child ref startswith C=
         needs_reverse = False
         for ic in ch:
             ctype = tree.type_by_idx.get(ic, "").strip()
@@ -222,11 +226,10 @@ def trim_twork_iChilds(sheet_read: list[list[str]], tree: TreeState) -> None:
         if needs_reverse:
             ch = list(reversed(ch))
 
-        # Rule 2: TfitOrder sorting from PDMS_info2(:,42) ~= sheet column (3+42)=45
         scored: list[tuple[float, int]] = []
         for j, ic in enumerate(ch, start=1):
-            row = sheet_read[ic - 1] if 0 < ic <= len(sheet_read) else []
-            tfit = _row_get(row, 45)
+            pdms = tree.pdms_info2.get(ic, [])
+            tfit = pdms[41].strip() if len(pdms) >= 42 else ""
             score = 990.0
             if tfit in {"B1", "S1"}:
                 score = 1.0
@@ -281,8 +284,7 @@ def sort_tree(tree: TreeState) -> None:
     level_s2[iroot] = 0
     tree.level_s2 = level_s2
 
-    idx_all = list(reversed(extr_sort)) + [iroot] + supp_sort
-    tree.idx_sort_all = idx_all
+    tree.idx_sort_all = list(reversed(extr_sort)) + [iroot] + supp_sort
 
 
 def make_bwork(tree: TreeState) -> None:
