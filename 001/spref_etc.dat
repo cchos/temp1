@@ -1,0 +1,17 @@
+No(1),SPREF(2),MATCH(3),DIRECTION(4),NAME(5),BLANK(6),W(7),H(8),D(9),BLANK(10),LOSS CODE1(11),LOSS1 P1(12),LOSS1 P2(13),LOSS1 P3(14),BLANK(15),BLANK(16),BLANK(17),BLANK(18),BLANK(19),BLANK(20),REMARK
+0,ROOM-UNIT,0,,,,,,,,,,,,,,,,,,
+1,CENTURY_ROOM-UNIT_TYPE-A,1,COMMON,CENTURY RU TYPE-A,,200,150,0,,RU1,40,480,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 20 mmAq / Air Volume -  8 CMM
+2,CENTURY_ROOM-UNIT_TYPE-B,1,COMMON,CENTURY RU TYPE-B,,200,150,0,,RU1,40,480,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 20 mmAq / Air Volume -  8 CMM
+3,CENTURY_ROOM-UNIT_TYPE-C,1,COMMON,CENTURY RU TYPE-C,,300,150,0,,RU1,50,840,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 25 mmAq / Air Volume - 14 CMM
+4,CENTURY_ROOM-UNIT_TYPE-D,1,COMMON,CENTURY RU TYPE-D,,300,150,0,,RU1,50,840,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 25 mmAq / Air Volume - 14 CMM
+5,HI-AIR_ROOMUNIT_TYPE-C,1,COMMON,HAK RU TYPE-C,,300,150,0,,RU1,50,840,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 25 mmAq / Air Volume - 14 CMM
+6,HI-AIR_TERMINAL-BOX_TYPE-A,1,COMMON,HAK RU TYPE-A,,200,150,0,,RU1,40,480,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 20 mmAq / Air Volume - 450 CMH
+7,HI-AIR_TERMINAL-BOX_TYPE-C,1,COMMON,HAK RU TYPE-C,,300,150,0,,RU1,50,840,,,,,,,,,W H - DUCT FLANGE SIZE / Pressure Loss - 25 mmAq / Air Volume - 800 CMH
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+END OF LIST,,,,,,,,,,,,,,,,,,
