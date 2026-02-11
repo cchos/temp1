@@ -221,21 +221,21 @@ endif
 
 
 !-- Initialization
-!allocate(character(len=128) :: sheet_read(MAXLINE,3+50+6+4))   ! 3Àº ±âº», 50Àº user, 6Àº position, 4´Â flow
-allocate(character(len=128) :: sheet_read(MAXLINE,3+50+6+6))   ! 3Àº ±âº», 50Àº user, 6Àº position, 6Àº flow
+!allocate(character(len=128) :: sheet_read(MAXLINE,3+50+6+4))   ! 3ì€ ê¸°ë³¸, 50ì€ user, 6ì€ position, 4ëŠ” flow
+allocate(character(len=128) :: sheet_read(MAXLINE,3+50+6+6))   ! 3ì€ ê¸°ë³¸, 50ì€ user, 6ì€ position, 6ì€ flow
 allocate(character(len=64) :: PDMS_info1(MAXLINE,12+MAXCHILD))
-!allocate(character(len=64) :: PDMS_info2(MAXLINE,50+6+4))        ! 50Àº user, 6Àº position, 4´Â flow
-allocate(character(len=64) :: PDMS_info2(MAXLINE,50+6+6))        ! 50Àº user, 6Àº position, 6Àº flow
-allocate(character(len=64) :: dsheet(MAXLINE,2+MAXCHILD+50+6))   ! °³¼ö ¼öÁ¤ÇØ¾ß ÇÒµí... MAXCHILD¿Í ¹«°ü 
-allocate(character(len=64) :: spref_read(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-allocate(character(len=64) :: spref_ETC(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_VDAMP(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_FDAMP(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_FANEQ(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_VENTU(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_ROOMU(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_MISCL(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
-!allocate(character(len=64) :: spref_PIPED(IMAX_SPREF,JMAX_SPREF))   ! °³¼ö Àû´çÈ÷ Àâ¾ÒÀ½. 160427
+!allocate(character(len=64) :: PDMS_info2(MAXLINE,50+6+4))        ! 50ì€ user, 6ì€ position, 4ëŠ” flow
+allocate(character(len=64) :: PDMS_info2(MAXLINE,50+6+6))        ! 50ì€ user, 6ì€ position, 6ì€ flow
+allocate(character(len=64) :: dsheet(MAXLINE,2+MAXCHILD+50+6))   ! ê°œìˆ˜ ìˆ˜ì •í•´ì•¼ í• ë“¯... MAXCHILDì™€ ë¬´ê´€ 
+allocate(character(len=64) :: spref_read(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+allocate(character(len=64) :: spref_ETC(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_VDAMP(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_FDAMP(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_FANEQ(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_VENTU(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_ROOMU(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_MISCL(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
+!allocate(character(len=64) :: spref_PIPED(IMAX_SPREF,JMAX_SPREF))   ! ê°œìˆ˜ ì ë‹¹íˆ ì¡ì•˜ìŒ. 160427
 
 sheet_read(:,:)=''
 PDMS_info1(:,:)=''
@@ -386,10 +386,10 @@ end subroutine
 !iroot=iroot_tree
 !isupp=0
 !iextr=0
-!isupp_ic(:)=0   ! irootÀÇ supply  childs
-!iextr_ic(:)=0   ! irootÀÇ extract childs
-!isupp_ic_no=0   ! irootÀÇ supply  child °³¼ö
-!iextr_ic_no=0   ! irootÀÇ extract child °³¼ö
+!isupp_ic(:)=0   ! irootì˜ supply  childs
+!iextr_ic(:)=0   ! irootì˜ extract childs
+!isupp_ic_no=0   ! irootì˜ supply  child ê°œìˆ˜
+!iextr_ic_no=0   ! irootì˜ extract child ê°œìˆ˜
 !
 !nChild=twork_nChild(iroot)
 !if (nChild == 0) then
@@ -523,7 +523,7 @@ else
    enddo
 endif
 
-! 160113  Fan inlet, outlet °³¼ö Ã¼Å© --> À§¿¡¼­ Ã¼Å©ÇÏ°Ô ÇÏ¿´À½. ÀÌºÎºĞ ³ªÁß¿¡ Áö¿ï°Í.
+! 160113  Fan inlet, outlet ê°œìˆ˜ ì²´í¬ --> ìœ„ì—ì„œ ì²´í¬í•˜ê²Œ í•˜ì˜€ìŒ. ì´ë¶€ë¶„ ë‚˜ì¤‘ì— ì§€ìš¸ê²ƒ.
 !if (icount_extr >= 2) then
 !   print *,'Fan Inlet should be connected to single element.', icount_supp
 !   ierror = 160113
@@ -537,7 +537,7 @@ endif
 !endif
 
 
-! ´Ù½Ã Á¤»ó ·çÆ¾
+! ë‹¤ì‹œ ì •ìƒ ë£¨í‹´
 isupp_tree=isupp
 iextr_tree=iextr
 
@@ -738,19 +738,19 @@ end subroutine
 !      if (BranList==1 .and. i==1) then   ! 150826
 !      !if (i==BLevel) then   ! OLD
 !         if (FlowDir>0) then
-!            ctmp='¦¦¦¡'
+!            ctmp='â””â”€'
 !         else
-!            ctmp='¦£¦¡'
+!            ctmp='â”Œâ”€'
 !         endif
 !      else
-!         ctmp='¡¡¡¡'
+!         ctmp='ã€€ã€€'
 !      endif
 !   else 
-!      !if (BranList==1) then   ! 160304 ÀÌÀü.
-!      if (BranList==1 .and. i==1) then   ! 160304 ÀÌÈÄ. ¿Ö µÇ´ÂÁö´Â ÆÄ¾Ç ¸øÇßÀ½... À§¿¡°Å¸¦ Âü°í.
-!         ctmp='¦§¦¡'
+!      !if (BranList==1) then   ! 160304 ì´ì „.
+!      if (BranList==1 .and. i==1) then   ! 160304 ì´í›„. ì™œ ë˜ëŠ”ì§€ëŠ” íŒŒì•… ëª»í–ˆìŒ... ìœ„ì—ê±°ë¥¼ ì°¸ê³ .
+!         ctmp='â”œâ”€'
 !      else
-!         ctmp='¦¢¡¡'
+!         ctmp='â”‚ã€€'
 !      endif
 !   endif
 !
@@ -806,19 +806,19 @@ do i=1,BLevel
       if (BranList==1 .and. i==1) then   ! 150826
       !if (i==BLevel) then   ! OLD
          if (FlowDir>0) then
-            ctmp='¦¦ '
+            ctmp='â”” '
          else
-            ctmp='¦£ '
+            ctmp='â”Œ '
          endif
       else
-         ctmp='¡¡ '
+         ctmp='ã€€ '
       endif
    else 
-      !if (BranList==1) then   ! 160304 ÀÌÀü.
-      if (BranList==1 .and. i==1) then   ! 160304 ÀÌÈÄ. ¿Ö µÇ´ÂÁö´Â ÆÄ¾Ç ¸øÇßÀ½... À§¿¡°Å¸¦ Âü°í.
-         ctmp='¦§ '
+      !if (BranList==1) then   ! 160304 ì´ì „.
+      if (BranList==1 .and. i==1) then   ! 160304 ì´í›„. ì™œ ë˜ëŠ”ì§€ëŠ” íŒŒì•… ëª»í–ˆìŒ... ìœ„ì—ê±°ë¥¼ ì°¸ê³ .
+         ctmp='â”œ '
       else
-         ctmp='¦¢ '
+         ctmp='â”‚ '
       endif
    endif
 
@@ -852,7 +852,7 @@ integer :: i,j,nChild
 integer :: x(MAXLINE)
 integer :: y(MAXLINE)
 
-! ÀüÀ§¼øÈ¸
+! ì „ìœ„ìˆœíšŒ
 
 icount=0
 if (x(1) == 0) then
@@ -1034,7 +1034,7 @@ do i=1,nnode
    d_refno(i)     =trim(PDMS_info1(i, 1))     ! refno
    d_parent(i)    =trim(PDMS_info1(i, 2))     ! parent refno
 
-   ! 150716 A ´ë½Å È¬µû¿ÈÇ¥ char(39)·Î. --> SpacingÀ¸·Î.
+   ! 150716 A ëŒ€ì‹  í™‘ë”°ì˜´í‘œ char(39)ë¡œ. --> Spacingìœ¼ë¡œ.
    d_refno(i) =' '//trim(d_refno(i))     ! refno
    if (len_trim(d_parent(i))>0) then
       d_parent(i)=' '//trim(d_parent(i))     ! parent refno
@@ -1048,8 +1048,8 @@ do i=1,nnode
    d_type2(i)     =trim(PDMS_info2(i, 2))  ! type2
    d_sectype(i)   =trim(PDMS_info2(i, 3))  ! section type
 
-   ! ±èÅÂÈ£ »ç¿ø ¹ß°ß ¿À·ù
-   ! --> trim_PDMS_info2() ·Î ÀÌµ¿   
+   ! ê¹€íƒœí˜¸ ì‚¬ì› ë°œê²¬ ì˜¤ë¥˜
+   ! --> trim_PDMS_info2() ë¡œ ì´ë™   
 
    if (trim(PDMS_info2(i, 5))=='DIAM') then
       d_sectype(i) = 'CIRC'
@@ -1146,7 +1146,7 @@ do i=1,nnode
    dsheet(i,10)=trim(real2str(d_h0(i)))  ! H
    dsheet(i,11)=trim(real2str(d_d0(i)))  ! D
    
-   ! BRCO W,H,D 160609 Ãß°¡.
+   ! BRCO W,H,D 160609 ì¶”ê°€.
     cType   =trim(d_type1(i))
    if (trim(cType)=='BRCO') then
       dsheet(i, 6)=d_sectypeb(i)  ! section type
@@ -1162,10 +1162,10 @@ enddo
 
 ! Roughness
 do i=1,nnode
-   ! ÀÓ½Ã. Roughness = 0.09·Î ÀÏ°ı ÅëÀÏ. 160617 Áö¿ï°Å¸é ¹Ù·Î ¾Æ·¡¸¸ Áö¿ì¸é µÊ.
+   ! ì„ì‹œ. Roughness = 0.09ë¡œ ì¼ê´„ í†µì¼. 160617 ì§€ìš¸ê±°ë©´ ë°”ë¡œ ì•„ë˜ë§Œ ì§€ìš°ë©´ ë¨.
    PDMS_info2(i,24) = '0.09'
 
-   ! Á¤½Ä..
+   ! ì •ì‹..
    if (trim(PDMS_info2(i,24)) /= '') then
       PDMS_info2(i,24) = REPLACE(PDMS_info2(i,24),'EX','E',.TRUE.)
    else
@@ -1249,7 +1249,7 @@ do i=1,nnode
                         !itmp = ic
                         !dirc1 = (/ d_dirn(itmp,1),d_dirn(itmp,2),d_dirn(itmp,3) /)
                         !angleC1 = acos(dot_product(dir0,dirc1))*180./pi                    
-                        !! °¢µµ ±¸ÇØ³õ°í ÀÌ¿ëÀº ¾ÈÇßÀ½
+                        !! ê°ë„ êµ¬í•´ë†“ê³  ì´ìš©ì€ ì•ˆí–ˆìŒ
                     
                         if ( (w0==w0_ic .and. h0==h0_ic) .or. (w0==h0_ic .and. h0==w0_ic) ) then
                             maxarea = w0_ic*h0_ic
@@ -1263,7 +1263,7 @@ do i=1,nnode
                         
                     enddo               
             
-                    ! nChild > 3 ÀÌ»óÀÏ °æ¿ì È®ÀÎ ÇÊ¿ä               
+                    ! nChild > 3 ì´ìƒì¼ ê²½ìš° í™•ì¸ í•„ìš”               
                     cTypeChild   =trim(d_type1(ic_strt))
                     if (trim(cTypeChild)=='BRCO' .or. trim(cTypeChild)=='BEND' .or. trim(cTypeChild)=='ELBO') then
                         do j=1,nChild                        
@@ -1506,7 +1506,7 @@ do i=1,nnode
             
             elseif ( trim(SecType)=='CIRC') then
                                          
-                ! ¼öÁ¤ÇÊ¿ä
+                ! ìˆ˜ì •í•„ìš”
                 itmp = i
                 dir0 = (/ d_dirn(itmp,1),d_dirn(itmp,2),d_dirn(itmp,3) /)
                 itmp = iChilds(1)
@@ -2044,8 +2044,8 @@ do i=1,nnode
    elseif (trim(cType)=='ELBO') then
       !PRINT *,trim(SecType),trim(cType2)
       if ((trim(SecType)=='CIRC' .or. trim(SecType)=='ETC').and. trim(cType2)=='') then
-         Para1=90.   ! PIPE element ÀÓ. Á¤º¸ ¾øÀ½. 90µµ·Î °¡Á¤
-         Para2=1.    ! PIPE element ÀÓ. Á¤º¸ ¾øÀ½. 1·Î °¡Á¤
+         Para1=90.   ! PIPE element ì„. ì •ë³´ ì—†ìŒ. 90ë„ë¡œ ê°€ì •
+         Para2=1.    ! PIPE element ì„. ì •ë³´ ì—†ìŒ. 1ë¡œ ê°€ì •
          Para3=0
          dsheet(i,19)='ELBOW(R'//trim(int2str(int(Para1)))//')'
          dsheet(i,20)=real2str(Para1)
@@ -2057,7 +2057,7 @@ do i=1,nnode
          Para1=ang1
          Para2=rad1/d0+0.5
          Para3=0
-         !dsheet(i,19)='ELBOW'   ! 160415 Default ¸¦ Mitered ·Î.
+         !dsheet(i,19)='ELBOW'   ! 160415 Default ë¥¼ Mitered ë¡œ.
          dsheet(i,19)='ELBOW(M'//trim(int2str(int(Para1)))//')'
          dsheet(i,20)=real2str(Para1)
          dsheet(i,21)=real2str(Para2)
@@ -2295,7 +2295,7 @@ do i2=1,nnode
    write(*,'(a)') trim(cout(1:79))
 
    write(fid,'(53(a,","),a)') &
-      trim(int2str(twork_LevelS2(i))),trim(dsheet(i, 2)),trim(dsheet(i, 3)),trim(dsheet(i, 4)), &             !trim(dsheet(i, 1)) ´ë½Å trim(int2str(ipos)) »ç¿ë. 151222
+      trim(int2str(twork_LevelS2(i))),trim(dsheet(i, 2)),trim(dsheet(i, 3)),trim(dsheet(i, 4)), &             !trim(dsheet(i, 1)) ëŒ€ì‹  trim(int2str(ipos)) ì‚¬ìš©. 151222
       trim(dsheet(i, 5)),trim(dsheet(i, 6)),trim(dsheet(i, 7)),trim(dsheet(i, 8)), &
       trim(dsheet(i, 9)),trim(dsheet(i,10)),trim(dsheet(i,11)),trim(dsheet(i,12)), &
       trim(dsheet(i,18)),trim(dsheet(i,13)),trim(dsheet(i,14)),trim(dsheet(i,15)),trim(dsheet(i,16)), &
@@ -2373,7 +2373,7 @@ nrow=icount
 ncol=ntokens
 
 ! globy : sheet_read, nrow_sheet_read, ncol_sheet_read
-! do ~ enddo »èÁ¦ °¡´É??? 160427
+! do ~ enddo ì‚­ì œ ê°€ëŠ¥??? 160427
 do i=1,nrow
    do j=1,ntokens
       tokens(j)=sheet_read(i,j)
@@ -2407,7 +2407,7 @@ integer :: ntokens
 nrow=nrow_sheet_read
 ncol=ncol_sheet_read
 
-! COL3 : trim fullname : ¿ø·¡ ÀÌ¸§ À¯Áö.(151215)
+! COL3 : trim fullname : ì›ë˜ ì´ë¦„ ìœ ì§€.(151215)
 do i=1,nrow
 
 if (1==0) then
@@ -2429,13 +2429,13 @@ endif
 
 enddo
 
-! COL1, COL2 : A Áö¿ì±â
+! COL1, COL2 : A ì§€ìš°ê¸°
 !do i=1,nrow
    !sheet_read(i, 1) = REPLACE(sheet_read(i, 1),'A','',.FALSE.)
    !sheet_read(i, 2) = REPLACE(sheet_read(i, 2),'A','',.FALSE.)
 !enddo
 
-! COL2 : À¯·® ÃßÃâ, Discharge/Suction
+! COL2 : ìœ ëŸ‰ ì¶”ì¶œ, Discharge/Suction
 do i=1,nrow
    cline_temp = REPLACE(sheet_read(i, 2),')','',.TRUE.)
    cline_temp = REPLACE(cline_temp,' (','~',.TRUE.)
@@ -2452,7 +2452,7 @@ do i=1,nrow
          sheet_read(i,IDXF2) = tokens(2)
       endif
    else
-      ! ¾Æ¹« ÀÛ¾÷ ¾ÈÇÏ´Â°Ô ³ªÀ½.
+      ! ì•„ë¬´ ì‘ì—… ì•ˆí•˜ëŠ”ê²Œ ë‚˜ìŒ.
       ! NOP
       sheet_read(i,IDXF1) = '-1'
       !sheet_read(i,IDXF2) = ''
@@ -2501,10 +2501,10 @@ enddo
 
 
 
-! ÀÚ½ÄÀÌ ÀÚ±â list ¼Ó¿¡ ¾øÀ» ¶§, ÀÚ½ÄÀ» µî·Ï <----------- ÀÏ´Ü ¹«½ÃÇÏ°í ÁøÇà
-! Find non-resgistered child (Attribute°¡ ¾øÀ½)
+! ìì‹ì´ ìê¸° list ì†ì— ì—†ì„ ë•Œ, ìì‹ì„ ë“±ë¡ <----------- ì¼ë‹¨ ë¬´ì‹œí•˜ê³  ì§„í–‰
+! Find non-resgistered child (Attributeê°€ ì—†ìŒ)
 i_nonreg=0
-if (1) then  ! ¹«½ÃÇÏ¿´À½.
+if (1) then  ! ë¬´ì‹œí•˜ì˜€ìŒ.
 do ir=1,nnode_read
    call findstr(col_idmy_read,nnode_read,col_idch_read(ir),ifound,nfound)
    if (nfound==0 .and. len_trim(col_idch_read(ir))>0  .and. trim(col_idch_read(ir))/='END') then
@@ -2519,7 +2519,7 @@ do ir=1,nnode_read
 
       !print *,trim(col_idmy_read(ir)),trim(col_idch_read(ir)),ir,ir_add
       
-      col_idmy_read(ir_add)=sheet_read(ir_add, 1)   ! ÀÚ½ÄÀ» µî·Ï
+      col_idmy_read(ir_add)=sheet_read(ir_add, 1)   ! ìì‹ì„ ë“±ë¡
       col_idch_read(ir_add)=''
       col_type_read(ir_add)=sheet_read(ir_add, 4)
    endif
@@ -2598,10 +2598,10 @@ do ir=1,nnode_read2
    endif
 enddo
 
-!% Make 'col_i_ch' : ÁÙ ¼Ó¿¡¼­ ³» ÀÚ½ÄÀÇ À§Ä¡ Ã£±â. ÀÚ½Ä3¸í ÃÊ°ú´Â Ã³¸® ·çÆ¾¿¡¼­ ¿¡·¯ ¶ã µí...
+!% Make 'col_i_ch' : ì¤„ ì†ì—ì„œ ë‚´ ìì‹ì˜ ìœ„ì¹˜ ì°¾ê¸°. ìì‹3ëª… ì´ˆê³¼ëŠ” ì²˜ë¦¬ ë£¨í‹´ì—ì„œ ì—ëŸ¬ ëœ° ë“¯...
 do i=1,nnode
    call findstr(col_idpr,nnode,col_idmy(i),ifound,nfound)
-   !nchild=nfound;   ! ÀÓ½Ã
+   !nchild=nfound;   ! ì„ì‹œ
    nchild=min(nfound,MAXCHILD);
    col_i_nchild(i)=nchild;
    if (nchild > MAXCHILD) then
@@ -2609,11 +2609,11 @@ do i=1,nnode
    endif
    do j=1,nchild
       !!!col_i_ch(i,j)=ifound(j)
-      col_i_ch(i,j)=ifound(nchild+1-j)         ! 150720A twork_iChilds ¼ø¼­°¡ µÚÁıÇôÀÖ´Â ÀÌÀ¯.(151222)
+      col_i_ch(i,j)=ifound(nchild+1-j)         ! 150720A twork_iChilds ìˆœì„œê°€ ë’¤ì§‘í˜€ìˆëŠ” ì´ìœ .(151222)
    enddo
 enddo
 
-!% Make 'col_i_nparent' : ºÎ¸ğ À¯¹«
+!% Make 'col_i_nparent' : ë¶€ëª¨ ìœ ë¬´
 do i=1,nnode
    if (col_i_pr(i)==0) then
       col_i_nparnt(i)=0
@@ -2675,7 +2675,7 @@ do ilevel=max_level,1,-1
                ic=col_i_ch(i,i2)
                col_i_flow(i)=col_i_flow(i)+col_i_flow(ic)
                if (col_i_dirn(ic) .ne. 99 .and. col_i_dirn(ic) .ne. 0) then
-                   ! 151120 Cap ¶§¹®¿¡ ¸ğµÎ ¿À¿°µÇ´Â °Í ¹æÁö.
+                   ! 151120 Cap ë•Œë¬¸ì— ëª¨ë‘ ì˜¤ì—¼ë˜ëŠ” ê²ƒ ë°©ì§€.
                    col_i_dirn(i)=col_i_dirn(ic)
                endif
             enddo
@@ -2687,7 +2687,7 @@ endif
 
 
 
-!% Flow Dir Á¤¸®
+!% Flow Dir ì •ë¦¬
 do ilevel=2,max_level
    do i=1,nnode
       if (col_i_level(i)==ilevel) then
@@ -2720,7 +2720,7 @@ do i=1,nnode
       PDMS_info2(i,j)=sheet_read(ir_i(i), 3+j)
       !print *,i,trim(PDMS_info2(i,59))
 
-      !comma µé¾î°£ °ÍµéÀ» ?·Î ´ëÃ¼ - 160407 --> ¾ÈµÊ. Âü°í·Î ³²°Ü ³õÀ½. Áö¿ö¾ß ÇÔ.
+      !comma ë“¤ì–´ê°„ ê²ƒë“¤ì„ ?ë¡œ ëŒ€ì²´ - 160407 --> ì•ˆë¨. ì°¸ê³ ë¡œ ë‚¨ê²¨ ë†“ìŒ. ì§€ì›Œì•¼ í•¨.
       !c_temp = REPLACE(trim(PDMS_info2(i,j)),',','?',.TRUE.)
       !PDMS_info2(i,j) = trim(c_temp)
    enddo
@@ -2783,9 +2783,9 @@ enddo
 
 !% Check
 do i=1,nnode
-   !c   if (i==col_i_nparnt(i)) then     <------- 16-03-03 ±îÁö ¹ö±×
+   !c   if (i==col_i_nparnt(i)) then     <------- 16-03-03 ê¹Œì§€ ë²„ê·¸
    if (i==col_i_pr(i)) then
-       PDMS_info1(i,10)='SELF-REFER <-- ERROR'   ! ¹Îµ¿ÀÌ ¿¬±¸¿ø ¹®ÀÇ 150527
+       PDMS_info1(i,10)='SELF-REFER <-- ERROR'   ! ë¯¼ë™ì´ ì—°êµ¬ì› ë¬¸ì˜ 150527
    endif
 enddo
 
@@ -2941,8 +2941,8 @@ nnode=nnode_tree
 
 do i=1,nnode
 
-! 150720A (Child ¼ø¼­ µÚÁıÀº »óÅÂ. ¹Ù·Î µÚ¿¡ ³ª¿À´Â ³à¼®ÀÌ STRTÀÏ °¡´É¼ºÀÌ ³ô´Ù. STRT¸¦ ¸Ç µÚ·Î »©¾ß PLOT¿¡¼­ ÀÌÇØ°¡ Àß °¨.)
-! AM¿¡¼­ NEXT Connection À» ¿¬°áÇÏ°í NEXT ¿ä¼Ò°¡ ¹Ù·Î ÀâÈ÷´Â ³à¼®µéÀº ¼ø¼­¸¦ ´Ù½Ã µÚÁı¾î¾ß ÇÔ. (BRCO, C_TEE, C_THRE)
+! 150720A (Child ìˆœì„œ ë’¤ì§‘ì€ ìƒíƒœ. ë°”ë¡œ ë’¤ì— ë‚˜ì˜¤ëŠ” ë…€ì„ì´ STRTì¼ ê°€ëŠ¥ì„±ì´ ë†’ë‹¤. STRTë¥¼ ë§¨ ë’¤ë¡œ ë¹¼ì•¼ PLOTì—ì„œ ì´í•´ê°€ ì˜ ê°.)
+! AMì—ì„œ NEXT Connection ì„ ì—°ê²°í•˜ê³  NEXT ìš”ì†Œê°€ ë°”ë¡œ ì¡íˆëŠ” ë…€ì„ë“¤ì€ ìˆœì„œë¥¼ ë‹¤ì‹œ ë’¤ì§‘ì–´ì•¼ í•¨. (BRCO, C_TEE, C_THRE)
 if (twork_iParent(i)/=0) then
 
    cRefno =trim(PDMS_info1(i, 1))
@@ -2966,7 +2966,7 @@ if (twork_iParent(i)/=0) then
       endif
    enddo
 
-   !151222 C_TEE Ã³¸®...
+   !151222 C_TEE ì²˜ë¦¬...
    do j=1,nChild
       ic=twork_iChilds(i,j)
       cRefnoChild=trim(PDMS_info1(ic, 1))
@@ -2991,7 +2991,7 @@ enddo
 
 
 
-! 2. 'S','B' ¼ø¼­¸¦ Á¶Á¤ÇÑ´Ù.
+! 2. 'S','B' ìˆœì„œë¥¼ ì¡°ì •í•œë‹¤.
 do i=1,nnode
    nChild=twork_nChild(i)
 
@@ -3037,7 +3037,7 @@ if (twork_iParent(i)/=0 .and. nChild > 1) then
       case default; rOrder(j) = 990.
       end select
       
-      rOrder(j) = rOrder(j) + 0.0001*j    ! °ªÀÌ °°À» ¶§ sort ¿¡¼­ ¼ø¼­°¡ µÚÁıÈ÷´Â °æ¿ì ÀÖÀ½... ÀÓ½Ã¹æÆí.
+      rOrder(j) = rOrder(j) + 0.0001*j    ! ê°’ì´ ê°™ì„ ë•Œ sort ì—ì„œ ìˆœì„œê°€ ë’¤ì§‘íˆëŠ” ê²½ìš° ìˆìŒ... ì„ì‹œë°©í¸.
       
 !      case ('B1' ,'S1' ); rOrder(j) = 1.
 !      case ('B2' ,'S2' ); rOrder(j) = 2.
@@ -3162,10 +3162,10 @@ real :: angleC1,angleC2,rtmp,angleS(6),angleS_max,angleS1,angleS2
 
 nnode=nnode_tree
 
-!------------- »çÀÌÁî, ¼Ó¼º, ÁÂÇ¥ »çÀü Ã¼Å© -------------------------
+!------------- ì‚¬ì´ì¦ˆ, ì†ì„±, ì¢Œí‘œ ì‚¬ì „ ì²´í¬ -------------------------
 
 
-! ±èÅÂÈ£ »ç¿ø ¹ß°ß ¿À·ù: ¼ıÀÚ¿¡ mm¿Í °°Àº ´ÜÀ§°¡ ºÙ´Â °æ¿ì°¡ ÀÖÀ½. PCOMP, COUPLING µî¿¡¼­.
+! ê¹€íƒœí˜¸ ì‚¬ì› ë°œê²¬ ì˜¤ë¥˜: ìˆ«ìì— mmì™€ ê°™ì€ ë‹¨ìœ„ê°€ ë¶™ëŠ” ê²½ìš°ê°€ ìˆìŒ. PCOMP, COUPLING ë“±ì—ì„œ.
 do i=1,nnode
    
    PDMS_info2(i, 4) = REPLACE(trim(PDMS_info2(i, 4)),'m','',.TRUE.)
@@ -3188,7 +3188,7 @@ enddo
 
 
 
-! SPREF¿¡¼­ Section Dimension °¡Á®¿À±â
+! SPREFì—ì„œ Section Dimension ê°€ì ¸ì˜¤ê¸°
 !EQUI
 do i=1,nnode
    cType  =trim(PDMS_info2(i, 1))
@@ -3279,7 +3279,7 @@ enddo
 
 
 
-! Section Dimension Á¤¸®.
+! Section Dimension ì •ë¦¬.
 !c Attr3: SecType
 !c Attr4: W1, !c Attr5: H1
 !c Attr6: W0, !c Attr7: H0
@@ -3290,22 +3290,22 @@ do i=1,nnode
    !--- W1, H1
    if (trim(PDMS_info2(i, 4)) /= '') then
       if (trim(PDMS_info2(i, 5)) == 'DIAM') then
-         ! CIRC Á¤»ó
+         ! CIRC ì •ìƒ
          ! NOP
       elseif (trim(PDMS_info2(i, 5)) == '0' .or. trim(PDMS_info2(i, 5)) == '') then
-         ! CIRC ¿¹¿Ü Çã¿ë
+         ! CIRC ì˜ˆì™¸ í—ˆìš©
          PDMS_info2(i, 5) ='DIAM'
       else
-         ! RECT Á¤»ó
+         ! RECT ì •ìƒ
          ! NOP
       endif
    else
       if (trim(PDMS_info2(i, 5)) /= '') then
-         ! ETC ¿¹¿Ü 
+         ! ETC ì˜ˆì™¸ 
          PDMS_info2(i, 4) ='9999'
          PDMS_info2(i, 5) ='9999'
       else
-         ! ETC ¿¹¿Ü
+         ! ETC ì˜ˆì™¸
          PDMS_info2(i, 4) ='9999'
          PDMS_info2(i, 5) ='9999'
       endif
@@ -3315,24 +3315,24 @@ do i=1,nnode
    !--- W0, H0
    if (trim(PDMS_info2(i, 6)) /= '') then
       if (trim(PDMS_info2(i, 7)) == 'DIAM') then
-         ! CIRC Á¤»ó
+         ! CIRC ì •ìƒ
          PDMS_info2(i, 3) = 'CIRC'
       elseif (trim(PDMS_info2(i, 7)) == '0' .or. trim(PDMS_info2(i, 7)) == '') then
-         ! CIRC ¿¹¿Ü Çã¿ë
+         ! CIRC ì˜ˆì™¸ í—ˆìš©
          PDMS_info2(i, 7) ='DIAM'
          PDMS_info2(i, 3) = 'CIRC'
       else
-         ! RECT Á¤»ó
+         ! RECT ì •ìƒ
          PDMS_info2(i, 3) = 'RECT'
       endif
    else
       if (trim(PDMS_info2(i, 7)) /= '') then
-         ! ETC ¿¹¿Ü 
+         ! ETC ì˜ˆì™¸ 
          PDMS_info2(i, 6) ='9999'
          PDMS_info2(i, 7) ='9999'
          PDMS_info2(i, 3) = 'ETC'
       else
-         ! ETC ¿¹¿Ü
+         ! ETC ì˜ˆì™¸
          PDMS_info2(i, 6) ='9999'
          PDMS_info2(i, 7) ='9999'
          PDMS_info2(i, 3) = 'ETC'
@@ -3343,22 +3343,22 @@ do i=1,nnode
    !--- W1, H1
    if (trim(PDMS_info2(i, 8)) /= '') then
       if (trim(PDMS_info2(i, 9)) == 'DIAM') then
-         ! CIRC Á¤»ó
+         ! CIRC ì •ìƒ
          ! NOP
       elseif (trim(PDMS_info2(i, 9)) == '0' .or. trim(PDMS_info2(i, 9)) == '') then
-         ! CIRC ¿¹¿Ü Çã¿ë
+         ! CIRC ì˜ˆì™¸ í—ˆìš©
          PDMS_info2(i, 9) ='DIAM'
       else
-         ! RECT Á¤»ó
+         ! RECT ì •ìƒ
          ! NOP
       endif
    else
       if (trim(PDMS_info2(i, 9)) /= '') then
-         ! ETC ¿¹¿Ü 
+         ! ETC ì˜ˆì™¸ 
          PDMS_info2(i, 8) ='9999'
          PDMS_info2(i, 9) ='9999'
       else
-         ! ETC ¿¹¿Ü
+         ! ETC ì˜ˆì™¸
          PDMS_info2(i, 8) ='9999'
          PDMS_info2(i, 9) ='9999'
       endif
@@ -3370,7 +3370,7 @@ enddo
 
 
 
-! ¿¬°á °ü°è¸¦ ÅëÇØ ¿¹¿Ü Á¤º¸¸¦ À¯ÃßÇÏ±â. DIMENSION, POSITION
+! ì—°ê²° ê´€ê³„ë¥¼ í†µí•´ ì˜ˆì™¸ ì •ë³´ë¥¼ ìœ ì¶”í•˜ê¸°. DIMENSION, POSITION
 !twork_iParent(i)/=0
 
 do i=1,nnode

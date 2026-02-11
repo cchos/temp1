@@ -107,7 +107,7 @@ integer :: inum
 real :: rout
 
 rnum = real(inum)
-rout = int(rinp/rnum + 0.5)*rnum   ! 160415 Áö±İ±îÁö int¸¦ »©¸Ô¾úÀ½.
+rout = int(rinp/rnum + 0.5)*rnum   ! 160415 ì§€ê¸ˆê¹Œì§€ intë¥¼ ë¹¼ë¨¹ì—ˆìŒ.
 
 end function
 
